@@ -8,19 +8,19 @@
 
 _________
 
-### :computer: Projeto
+### :computer:  Projeto
 
 <p align="justify">
 Este é um desafio com o intuito de desenvolver uma aplicação distribuída que permite três jogadores participarem do jogo pedra, papel e tesoura. Cada jogador será considerado um cliente de uma arquitetura Cliente/Servidor e irá se comunicar com “Controlador do Jogo” que coordena o jogo.
 </p>
 
-### :memo: Objetivos
+### :memo:  Objetivos
 
-◦ Familiarizar-se com a programação utilizando a API socket;
-◦ Implementar um protocolo para simular o jogo pedra, papel e tesoura, com 3 jogadores;
+◦ Familiarizar-se com a programação utilizando a API socket;<br>
+◦ Implementar um protocolo para simular o jogo pedra, papel e tesoura, com 3 jogadores;<br>
 ◦ Enviar e receber dados em uma aplicação que utiliza a arquitetura Cliente/Servidor.
 
-### :warning: Regras do Jogo
+### :warning:   Regras do Jogo
 
 1. Papel ganha de Pedra
 2. Pedra ganha de Tesoura
