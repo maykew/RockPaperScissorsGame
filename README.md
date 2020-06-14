@@ -1,11 +1,33 @@
 <h1 align="center">
-    Rock, Paper or Scissors
+    Rock-Paper-Scissors Game
 </h1>
 
 <p align="center">
-    <img width="50%" src="https://static.vecteezy.com/system/resources/thumbnails/000/690/792/original/rock-paper-scissors-hand-icons.jpg" alt="Rock Paper Scissors Image"/>
+    <img width="60%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRP8bQAWR6JLBQP0Pg7GB-1c8YaKCwvz9ztrhwN5vjFO3MiExon&usqp=CAU" alt="Rock Paper Scissors Image"/>
 </p>
 
 _________
 
+### :computer: Projeto
 
+Este é um desafio com o intuito de desenvolver uma aplicação distribuída que permite três jogadores participarem do jogo pedra, papel e tesoura. Cada jogador será considerado um cliente de uma arquitetura Cliente/Servidor e irá se comunicar com “Controlador do Jogo” que que coordena o jogo.
+
+### :memo: Objetivos
+
+◦ Familiarizar-se com a programação utilizando a API socket;
+◦ Implementar um protocolo para simular o jogo pedra, papel e tesoura, com 3 jogadores;
+◦ Enviar e receber dados em uma aplicação que utiliza a arquitetura Cliente/Servidor.
+
+### :warning: Regras do Jogo
+
+1. Papel ganha de Pedra
+2. Pedra ganha de Tesoura
+3. Tesoura ganha de Papel
+4. Um jogador somente será declarado eliminado se e somente se for derrotado por todos os seus
+oponentes em uma jogada.
+5. Um jogador somente será declarado vencedor se e somente se vencer todos os seus oponentes em
+uma jogada.
+
+_________
+
+<h4 align="center"> ♥ by Mayke Willans ♥ </h4>
