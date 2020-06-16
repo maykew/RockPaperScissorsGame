@@ -35,7 +35,7 @@ enviaMensagem(msg, tcp)
 msg = recebeMensagem(tcp)
 print (msg)
 
-#Enviando mensagem da opcao escolhida
+#------- Troca de mensagens --------------
 msg = input("\nTo exit use CTRL+X: ")
 while msg != '\x18':
     

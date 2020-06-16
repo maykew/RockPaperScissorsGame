@@ -3,7 +3,6 @@ HOST = ''              # Endereco IP do Servidor e o endereco atual do computado
 PORT = 5000            # Porta do Servidor na maquina 
 
 #-------------- Funcoes --------------
-
 def conexao():
     for i in range(numJogadores):
         con, cliente = tcp.accept() # Aceita conexao do cliente
