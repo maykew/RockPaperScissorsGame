@@ -47,6 +47,12 @@ msg = input("\nWhat's your choice - Rock, Paper or Scissors? (to exit use CTRL+X
 while msg != '\x18':
     
     enviaMensagem(msg, tcp)
+    
+    msg = recebeMensagem(tcp)
+    erro = int(msg)
+    if erro: 
+        print ("\nO jogo foi interrompido :(")
+        break
 
     #Recebendo mensagem das jogadas
     msg = recebeMensagem(tcp)
@@ -72,8 +78,9 @@ while msg != '\x18':
     msg = input("\nWhat's your choice - Rock, Paper or Scissors? (to exit use CTRL+X): ")
 #---------------- fim do protocolo --------------
 
-#Recebendo mensagem final
-msg = recebeMensagem(tcp)
-print (msg)
+if msg != '\x18':
+    #Recebendo mensagem final
+    msg = recebeMensagem(tcp)
+    print (msg)
 
 tcp.close()	# fecha a conexao com o servidor

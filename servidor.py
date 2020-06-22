@@ -174,10 +174,18 @@ while True:
             indice=jogadores[i][1]
             msg = clientes[indice][0].recv(1024)       
             if not msg:
-                parou = True 
-                break
+                parou = True
+                quemParou = i
             mensagens.append(msg)
-        if parou: break
+
+        if parou:
+            for i in range(len(clientes)):
+                if i != quemParou:
+                    enviaMensagem("1", clientes[i][0])
+            break
+        else:
+            for i in range(len(clientes)):
+                enviaMensagem("0", clientes[i][0])  
 
         print("\nArmazenando jogadas da rodada")
         #Armazenando jogadas
@@ -254,5 +262,5 @@ while True:
 
     #---------------- fim do protocolo --------------
 
-    for i in range(numJogadores):
+    for i in range(len(clientes)):
         finalizaCliente(i)
