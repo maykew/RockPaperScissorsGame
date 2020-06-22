@@ -18,13 +18,13 @@
 
 _________
 
-### :computer:  Projeto
+### :computer: Projeto
 
 <p align="justify">
 Este é um desafio com o intuito de desenvolver uma aplicação distribuída que permite n jogadores participarem do jogo pedra, papel e tesoura. Cada jogador será considerado um cliente de uma arquitetura Cliente/Servidor e irá se comunicar com “Controlador do Jogo” que coordena o jogo.
 </p>
 
-### :dart:  Objetivos
+### :dart: Objetivos
 
 - Familiarizar-se com a programação utilizando a [API socket](https://docs.python.org/3/library/socket.html);<br>
 - Implementar um protocolo para simular o jogo pedra, papel e tesoura, com n jogadores;<br>
@@ -36,7 +36,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - [Python](https://www.python.org/)
 
-### :warning:   Regras do Jogo
+### :warning: Regras do Jogo
 
 1. Papel ganha de Pedra
 2. Pedra ganha de Tesoura
@@ -48,9 +48,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 - Faça um clone deste repositório: `git clone https://github.com/maykew/RockPaperScissorsGame`;
 - Entre no diretório BSI_socket;
-- Abra um terminal e inicializa o servidor: `python servidor.py`;
-- Abra um novo terminal e inicializa o cliente: `python cliente.py`;
-- Abra um novo terminal e inicializa o segundo cliente: `python cliente.py`;
+- Abra um terminal e inicialize o servidor: `python servidor.py`;
+- Abra um novo terminal e inicialize o cliente: `python cliente.py`;
+- Abra um novo terminal e inicialize o segundo cliente: `python cliente.py`;
 
 Caso deseje alterar o número de jogadores, entre no código do servidor e atualize a variável numJogadores (lembre-se que cada jogador deve ser inicializado em um novo terminal);
 
