@@ -86,6 +86,7 @@ def msgEmpatado(pos):
     msg="\nThe game was a draw, let's go to the next round!"
     enviaMensagem(msg, clientes[pos][0])
 
+#Funcao que recebe a opcao escolhida e retorna o id correspondente da opcao
 def jogadaToInt(opcao):
     if (opcao.lower() == "pedra" or opcao.lower() == "rock"):
         return 1
@@ -94,7 +95,7 @@ def jogadaToInt(opcao):
     elif (opcao.lower() == "tesoura" or opcao.lower() == "scissors"):
         return 3
             
-
+#Funcao que recebe o id correspondente da opcao e retorna a opcao escolhida
 def jogadaToString (indice):
     if (indice == 1):
         return "rock"
@@ -103,6 +104,7 @@ def jogadaToString (indice):
     elif (indice == 3):
         return "scissors"
 
+#Funcao que recebe a lista de jogadas e envia aos jogadores as jogadas
 def jogadasRodada(listJogadas):
     for i in range(len(jogadores)):
         opcao = jogadaToString(listJogadas[jogadores[i][1]])
@@ -191,8 +193,10 @@ while True:
             jogador = jogadores[i]
             print(jogador[0]," - ",jogadas[jogador[1]])
         
+        #Enviando jogadas da rodad aos clientes
         jogadasRodada(jogadas)
 
+        #Tudo ok
         for i in range(len(jogadores)):
             recebeMensagem(clientes[jogadores[i][1]][0])
 

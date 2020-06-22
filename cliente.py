@@ -52,6 +52,7 @@ while msg != '\x18':
     msg = recebeMensagem(tcp)
     print (msg)
 
+    #Tudo ok
     enviaMensagem("Tudo ok", tcp)
 
     #Recebendo mensagem do resultado
