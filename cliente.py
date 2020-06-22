@@ -48,6 +48,12 @@ while msg != '\x18':
     
     enviaMensagem(msg, tcp)
 
+    #Recebendo mensagem das jogadas
+    msg = recebeMensagem(tcp)
+    print (msg)
+
+    enviaMensagem("Tudo ok", tcp)
+
     #Recebendo mensagem do resultado
     msg = recebeMensagem(tcp)
     fimDeJogo = int(msg)

@@ -86,6 +86,34 @@ def msgEmpatado(pos):
     msg="\nThe game was a draw, let's go to the next round!"
     enviaMensagem(msg, clientes[pos][0])
 
+def jogadaToInt(opcao):
+    if (opcao.lower() == "pedra" or opcao.lower() == "rock"):
+        return 1
+    elif (opcao.lower() == "papel" or opcao.lower() == "paper"):
+        return 2
+    elif (opcao.lower() == "tesoura" or opcao.lower() == "scissors"):
+        return 3
+            
+
+def jogadaToString (indice):
+    if (indice == 1):
+        return "rock"
+    elif (indice == 2):
+        return "paper"
+    elif (indice == 3):
+        return "scissors"
+
+def jogadasRodada(listJogadas):
+    for i in range(len(jogadores)):
+        opcao = jogadaToString(listJogadas[jogadores[i][1]])
+        msg="\nJogadas da rodada:\n"+jogadores[i][0]+": "+opcao
+        for j in range(1,numJogadores):
+            opcao=jogadaToString(listJogadas[jogadores[(i+j)%numJogadores][1]])
+            msg+="\n"+jogadores[(i+j)%numJogadores][0]
+            msg+=": "+opcao
+        
+        enviaMensagem(msg, clientes[jogadores[i][1]][0])
+
 
 
 
@@ -127,7 +155,8 @@ while True:
 
         print("\nInicio da rodada")
         cont+=1     #Incrementando variavel indicador de rodada 
-        jogadas=[]     # Lista com as jogadas da rodada
+        #jogadas=[]     # Lista com as jogadas da rodada
+        jogadas={}
 
         #Enviando mensagem de inicio de rodada
         for i in range(len(jogadores)):
@@ -151,17 +180,21 @@ while True:
         print("\nArmazenando jogadas da rodada")
         #Armazenando jogadas
         for i in range(len(jogadores)):
-            msg = mensagens[i].decode('UTF-8')	# Decodifica a mensagem
-            if (msg.lower() == "pedra" or msg.lower() == "rock"): msg=1
-            elif (msg.lower() == "papel" or msg.lower() == "paper"): msg=2
-            elif (msg.lower() == "tesoura" or msg.lower() == "scissor"): msg=3
-            jogadas.append(msg)
+            opcao = mensagens[i].decode('UTF-8')	# Decodifica a mensagem
+            msg = jogadaToInt(opcao)
+            #jogadas.append(msg)
+            jogadas[jogadores[i][1]]=msg
 
         #print para controle do servidor
         print("\nJogadas da rodada:")
         for i in range(len(jogadores)):
-            print(jogadores[i][0]," - ",jogadas[i])
+            jogador = jogadores[i]
+            print(jogador[0]," - ",jogadas[jogador[1]])
+        
+        jogadasRodada(jogadas)
 
+        for i in range(len(jogadores)):
+            recebeMensagem(clientes[jogadores[i][1]][0])
 
         terminouRodada = False  #Variavel indicando termino da rodada
         empate = True   #Variavel indicando empate na rodada
@@ -174,7 +207,9 @@ while True:
             #Verificando resultados
             for j in range(len(jogadores)):
                 if i != j:
-                    resultado += quemGanhou(jogadas[i], jogadas[j])
+                    jogador1 = jogadores[i]
+                    jogador2 = jogadores[j]
+                    resultado += quemGanhou(jogadas[jogador1[1]], jogadas[jogador2[1]])
 
             #Um jogador venceu todos os outros
             if resultado == len(jogadores)-1:
