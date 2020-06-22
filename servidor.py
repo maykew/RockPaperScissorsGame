@@ -126,7 +126,7 @@ while True:
     while not fimDeJogo:
 
         print("\nInicio da rodada")
-        cont+=1 #Incrementando variavel indicador de rodada 
+        cont+=1     #Incrementando variavel indicador de rodada 
         jogadas=[]     # Lista com as jogadas da rodada
 
         #Enviando mensagem de inicio de rodada
