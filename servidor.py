@@ -106,12 +106,12 @@ def jogadaToString (indice):
 
 #Funcao que recebe a lista de jogadas e envia aos jogadores as jogadas
 def jogadasRodada(listJogadas):
-    for i in range(len(jogadores)):
+    for i in range(len(listJogadas)):
         opcao = jogadaToString(listJogadas[jogadores[i][1]])
-        msg="\nJogadas da rodada:\n"+jogadores[i][0]+": "+opcao
-        for j in range(1,numJogadores):
-            opcao=jogadaToString(listJogadas[jogadores[(i+j)%numJogadores][1]])
-            msg+="\n"+jogadores[(i+j)%numJogadores][0]
+        msg="\nThese were the moves:\n"+jogadores[i][0]+": "+opcao
+        for j in range(1,len(listJogadas)):
+            opcao=jogadaToString(listJogadas[jogadores[(i+j)%len(listJogadas)][1]])
+            msg+="\n"+jogadores[(i+j)%len(listJogadas)][0]
             msg+=": "+opcao
         
         enviaMensagem(msg, clientes[jogadores[i][1]][0])
@@ -179,13 +179,15 @@ while True:
             mensagens.append(msg)
 
         if parou:
-            for i in range(len(clientes)):
+            for i in range(len(jogadores)):
                 if i != quemParou:
-                    enviaMensagem("1", clientes[i][0])
+                    indice = jogadores[i][1]
+                    enviaMensagem("1", clientes[indice][0])
             break
         else:
-            for i in range(len(clientes)):
-                enviaMensagem("0", clientes[i][0])  
+            for i in range(len(jogadores)):
+                indice = jogadores[i][1]
+                enviaMensagem("0", clientes[indice][0])  
 
         print("\nArmazenando jogadas da rodada")
         #Armazenando jogadas
