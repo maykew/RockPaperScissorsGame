@@ -48,10 +48,17 @@ while msg != '\x18':
     
     enviaMensagem(msg, tcp)
     
+    #Recebendo resposta da jogada enviada
     msg = recebeMensagem(tcp)
     erro = int(msg)
-    if erro: 
-        print ("\nO jogo foi interrompido :(")
+    if erro == 1: 
+        print ("\nThe game was interrupted :(")
+        break
+    elif erro == 2:
+        print ("\nSomeone typed wrong, please try again")
+        break
+    elif erro == 3:
+        print ("\nIncorrect option, please try again")
         break
 
     #Recebendo mensagem das jogadas

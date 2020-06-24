@@ -180,24 +180,37 @@ while True:
                 quemParou = i
             mensagens.append(msg)
 
-        #Caso algum jogador interrompa a partida, todos jogadores perdem a conexão
+        #Caso algum jogador interrompa a partida ou digite a opção errada, todos jogadores perdem a conexão
         if parou:
             for i in range(len(jogadores)):
                 if i != quemParou:
                     indice = jogadores[i][1]
                     enviaMensagem("1", clientes[indice][0])
             break
+        
         else:
+            print("\nArmazenando jogadas da rodada")
+            #Armazenando jogadas
+            for i in range(len(jogadores)):
+                opcao = mensagens[i].decode('UTF-8')	# Decodifica a mensagem
+                msg = jogadaToInt(opcao)
+                if msg < 0:
+                    parou = True
+                    for j in range(len(jogadores)):
+                        if i != j:
+                            indice = jogadores[j][1]
+                            enviaMensagem("2", clientes[indice][0])
+                        else:
+                            indice = jogadores[j][1]
+                            enviaMensagem("3", clientes[indice][0])
+                    break
+                jogadas[jogadores[i][1]]=msg
+            
+            if parou: break
+
             for i in range(len(jogadores)):
                 indice = jogadores[i][1]
                 enviaMensagem("0", clientes[indice][0])  
-
-        print("\nArmazenando jogadas da rodada")
-        #Armazenando jogadas
-        for i in range(len(jogadores)):
-            opcao = mensagens[i].decode('UTF-8')	# Decodifica a mensagem
-            msg = jogadaToInt(opcao)
-            jogadas[jogadores[i][1]]=msg
 
         #print para controle do servidor
         print("\nJogadas da rodada:")
@@ -229,7 +242,7 @@ while True:
 
             #Um jogador venceu todos os outros
             if resultado == len(jogadores)-1:
-                print("\n",jogadores[i][0], " venceu")
+                print("\nJogador ",jogadores[i][0], " venceu\n")
                 msgVencedor(jogadores[i][1])
                 for j in range(len(jogadores)):
                     if i != j:
@@ -240,7 +253,7 @@ while True:
 
             #Um jogador foi eliminado (perdeu para todos os outros)
             elif resultado == ((len(jogadores)-1)*(-1)):
-                print("\n",jogadores[i][0], " foi eliminado")
+                print("\nJogador ",jogadores[i][0], " foi eliminado")
                 msgEliminado(jogadores[i][1])
                 if len(jogadores) > 2:
                     for j in range(len(jogadores)):
@@ -249,7 +262,7 @@ while True:
                 print("\nJogador excluido")
                 jogadores.pop(i)
                 if len(jogadores) == 1:
-                    print("\nJogador ", jogadores[0][0] , "venceu")
+                    print("\nJogador ", jogadores[0][0] , "venceu\n")
                     msgVencedor(jogadores[0][1])
                     fimDeJogo = True
                 empate = False
