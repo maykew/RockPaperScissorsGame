@@ -94,6 +94,8 @@ def jogadaToInt(opcao):
         return 2
     elif (opcao.lower() == "tesoura" or opcao.lower() == "scissors"):
         return 3
+    else:
+        return -1
             
 #Funcao que recebe o id correspondente da opcao e retorna a opcao escolhida
 def jogadaToString (indice):
@@ -178,6 +180,7 @@ while True:
                 quemParou = i
             mensagens.append(msg)
 
+        #Caso algum jogador interrompa a partida, todos jogadores perdem a conexão
         if parou:
             for i in range(len(jogadores)):
                 if i != quemParou:
@@ -194,7 +197,6 @@ while True:
         for i in range(len(jogadores)):
             opcao = mensagens[i].decode('UTF-8')	# Decodifica a mensagem
             msg = jogadaToInt(opcao)
-            #jogadas.append(msg)
             jogadas[jogadores[i][1]]=msg
 
         #print para controle do servidor
