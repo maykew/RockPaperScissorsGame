@@ -1,5 +1,5 @@
 <h1 align="center">
-    :construction: Rock-Paper-Scissors Game :construction:
+    Rock-Paper-Scissors Game
 </h1>
 
 <p align="center">
@@ -38,10 +38,10 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ### :warning: Regras do Jogo
 
-1. Papel ganha de Pedra
-2. Pedra ganha de Tesoura
-3. Tesoura ganha de Papel
-4. Um jogador somente será declarado eliminado se e somente se for derrotado por todos os seus oponentes em uma jogada.
+1. Papel ganha de Pedra;
+2. Pedra ganha de Tesoura;
+3. Tesoura ganha de Papel;
+4. Um jogador somente será declarado eliminado se e somente se for derrotado por todos os seus oponentes em uma jogada;
 5. Um jogador somente será declarado vencedor se e somente se vencer todos os seus oponentes em uma jogada.
 
 ### :mortar_board: Como executar o projeto
@@ -49,10 +49,11 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - Faça um clone deste repositório: `git clone https://github.com/maykew/RockPaperScissorsGame`;
 - Entre no diretório BSI_socket;
 - Abra um terminal e inicialize o servidor: `python servidor.py`;
-- Abra um novo terminal e inicialize o cliente: `python cliente.py`;
+- Abra um novo terminal e inicialize o primeiro cliente: `python cliente.py`;
 - Abra um novo terminal e inicialize o segundo cliente: `python cliente.py`;
+- Abra um novo terminal e inicialize o terceiro cliente: `python cliente.py`;
 
-Caso deseje alterar o número de jogadores, entre no código do servidor e atualize a variável numJogadores (lembre-se que cada jogador deve ser inicializado em um novo terminal);
+Caso deseje alterar o número de jogadores, entre no código do servidor e atualize a variável numJogadores (lembre-se que cada jogador deve ser inicializado em um novo terminal).
 
 ### :family: Como contribuir
 
