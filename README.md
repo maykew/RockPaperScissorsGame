@@ -47,7 +47,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ### :mortar_board: Como executar o projeto
 
 - Faça um clone deste repositório: `git clone https://github.com/maykew/RockPaperScissorsGame`;
-- Entre no diretório BSI_socket;
+- Entre no diretório;
 - Abra um terminal e inicialize o servidor: `python servidor.py`;
 - Abra um novo terminal e inicialize o primeiro cliente: `python cliente.py`;
 - Abra um novo terminal e inicialize o segundo cliente: `python cliente.py`;
