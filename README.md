@@ -3,10 +3,6 @@
 </h1>
 
 <p align="center">
-    <img width="40%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRP8bQAWR6JLBQP0Pg7GB-1c8YaKCwvz9ztrhwN5vjFO3MiExon&usqp=CAU" alt="Rock Paper Scissors Image"/>
-</p>
-
-<p align="center">
   <a href="#computer-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#dart-objetivos">Objetivos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#boom-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -47,7 +43,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 ### :mortar_board: Como executar o projeto
 
 - Faça um clone deste repositório: `git clone https://github.com/maykew/RockPaperScissorsGame`;
-- Entre no diretório;
+- Entre no diretório RockPaperScissorsGame;
 - Abra um terminal e inicialize o servidor: `python servidor.py`;
 - Abra um novo terminal e inicialize o primeiro cliente: `python cliente.py`;
 - Abra um novo terminal e inicialize o segundo cliente: `python cliente.py`;
