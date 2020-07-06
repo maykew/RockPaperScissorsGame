@@ -3,6 +3,10 @@
 </h1>
 
 <p align="center">
+    <img width="40%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRP8bQAWR6JLBQP0Pg7GB-1c8YaKCwvz9ztrhwN5vjFO3MiExon&usqp=CAU" alt="Rock Paper Scissors Image"/>
+</p>
+
+<p align="center">
   <a href="#computer-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#dart-objetivos">Objetivos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#boom-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
