@@ -11,6 +11,14 @@ def conexao():
         con, cliente = tcp.accept() # Aceita conexao do cliente
         clientes.append((con, cliente)) #Adicionado cliente na lista de clientes
         print ('Concetado por', clientes[i][1])
+        
+        #Enviando mensagem inicial
+        msg_inicial = "\nHi! Welcome to Rock, Paper, Scissors Game\nType your name: "
+        enviaMensagem(msg_inicial, clientes[i][0])
+
+        #Recebendo mensagem para identificação do jogador
+        msg_nome = recebeMensagem(clientes[i][0])
+        jogadores.append((msg_nome, i)) #Adiciona nome do jogador a lista de jogadores
 
 #Funcao que recebe uma mensagem e uma conexao como paramentro, e encaminha a mensagem para o cliente
 def enviaMensagem(msg, destino):
@@ -23,21 +31,6 @@ def recebeMensagem(remetente):
     msg = msg.decode('UTF-8')	# Decodifica a mensagem
     return msg
 
-#Funcao que envia boas vindas e identifica jogadores
-def identificacao():
-    for i in range(numJogadores):
-        #Enviando mensagem inicial
-        msg_inicial = "\nHi! Welcome to Rock, Paper, Scissors Game\n"
-        enviaMensagem(msg_inicial, clientes[i][0])
-
-        #Enviando mensagem para identificação do jogador
-        msg_nome = "Type your name: "
-        enviaMensagem(msg_nome, clientes[i][0])
-
-        #Recebendo mensagem para identificação do jogador
-        msg_nome = recebeMensagem(clientes[i][0])
-        jogadores.append((msg_nome, i)) #Adiciona nome do jogador a lista de jogadores
-
 #Funcao que envia mensagem aos jogadores sobre adversarios da partida
 def adversarios():
     #Enviando mensagem aos jogadores da rodada
@@ -45,7 +38,7 @@ def adversarios():
         adversarios=[]
         for j in range(1,numJogadores):
             adversarios.append(jogadores[(i+j)%numJogadores][0])
-        msg="\n"+jogadores[i][0]+", your opponents are: "+", ".join(adversarios[:len(adversarios)-1])+" and " + adversarios[-1]
+        msg="\nYour opponents are: "+", ".join(adversarios[:len(adversarios)-1])+" and " + adversarios[-1]
         enviaMensagem(msg, clientes[i][0])
 
 #Funcao que recebe duas jogadas e retorna um resultado
@@ -67,23 +60,17 @@ def finalizaCliente(pos):
 
 #Funcao que recebe o indice da posicao do cliente e informa que ele eh o vencedor
 def msgVencedor(pos):
-    msg="1"
-    enviaMensagem(msg, clientes[pos][0])
-    msg="\nYou win!" 
+    msg="1,\nYou win!" 
     enviaMensagem(msg, clientes[pos][0])
 
 #Funcao que recebe o indice da posicao do cliente e informa que ele esta eliminado
 def msgEliminado(pos):
-    msg="1"
-    enviaMensagem(msg, clientes[pos][0])
-    msg="\nYou lose!" 
+    msg="1,\nYou lose!" 
     enviaMensagem(msg, clientes[pos][0])
 
 #Funcao que recebe o indice da posicao do cliente e informa que o jogo deu empate
 def msgEmpatado(pos):
-    msg="0"
-    enviaMensagem(msg, clientes[pos][0])
-    msg="\nThe game was a draw, let's go to the next round!"
+    msg="0,\nThe game was a draw, let's go to the next round!"
     enviaMensagem(msg, clientes[pos][0])
 
 #Funcao que recebe a opcao escolhida e retorna o id correspondente da opcao
@@ -143,23 +130,22 @@ while True:
 
     #Realiza a conexao dos clientes
     conexao()
-
-    #Realiza a identificacao dos clientes
-    identificacao()
     
     #Envia mensagem aos jogadores da rodada
     adversarios()
-
     
     cont=0  #Variavel de indicar rodada
     fimDeJogo = False   # Variavel para indicar fim de jogo
 
     #-------------- Troca de mensagens --------------
     while not fimDeJogo:
+		
+		#Tudo ok
+        for i in range(len(jogadores)):
+            recebeMensagem(clientes[jogadores[i][1]][0])
 
         print("\nInicio da rodada")
         cont+=1     #Incrementando variavel indicador de rodada 
-        #jogadas=[]     # Lista com as jogadas da rodada
         jogadas={}
 
         #Enviando mensagem de inicio de rodada
@@ -211,7 +197,11 @@ while True:
             for i in range(len(jogadores)):
                 indice = jogadores[i][1]
                 enviaMensagem("0", clientes[indice][0])  
-
+		
+		#Tudo ok
+        for i in range(len(jogadores)):
+            recebeMensagem(clientes[jogadores[i][1]][0])
+		
         #print para controle do servidor
         print("\nJogadas da rodada:")
         for i in range(len(jogadores)):

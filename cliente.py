@@ -27,16 +27,16 @@ tcp.connect(dest)	# Estabelece a conexao
 msg = recebeMensagem(tcp)
 print (msg)
 
-#Recebendo mensagem para identificação do jogador
-msg = recebeMensagem(tcp)
-
 #Enviando mensagem para identificação do jogador
-msg = input(msg)
+msg = input()
 enviaMensagem(msg, tcp)
 
 #Recebendo mensagem dos jogadores da rodada
 msg = recebeMensagem(tcp)
 print (msg)
+
+#Tudo ok
+enviaMensagem("Tudo ok", tcp)
 
 #Recebendo mensagem de inicio de rodada
 msg = recebeMensagem(tcp)
@@ -53,14 +53,20 @@ while msg != '\x18':
     erro = int(msg)
     if erro == 1: 
         print ("\nThe game was interrupted :(")
+        msg='\x18'
         break
     elif erro == 2:
         print ("\nSomeone typed wrong, please try again")
+        msg='\x18'
         break
     elif erro == 3:
         print ("\nIncorrect option, please try again")
+        msg='\x18'
         break
-
+	
+	#Tudo ok
+    enviaMensagem("Tudo ok", tcp)
+	
     #Recebendo mensagem das jogadas
     msg = recebeMensagem(tcp)
     print (msg)
@@ -69,14 +75,19 @@ while msg != '\x18':
     enviaMensagem("Tudo ok", tcp)
 
     #Recebendo mensagem do resultado
-    msg = recebeMensagem(tcp)
-    fimDeJogo = int(msg)
+    msgs = recebeMensagem(tcp)
+    msgs = msgs.split(",")
+    
+    msg = msgs[1]
+    fimDeJogo = int(msgs[0])
     
     if fimDeJogo: break
 
-    #Recebendo de continuacao
-    msg = recebeMensagem(tcp)
+    #Mensagem de continuacao
     print (msg)
+    
+    #Tudo ok
+    enviaMensagem("Tudo ok", tcp)
 
     #Recebendo mensagem de inicio de rodada
     msg = recebeMensagem(tcp)
@@ -86,8 +97,6 @@ while msg != '\x18':
 #---------------- fim do protocolo --------------
 
 if msg != '\x18':
-    #Recebendo mensagem final
-    msg = recebeMensagem(tcp)
     print (msg)
 
 tcp.close()	# fecha a conexao com o servidor
