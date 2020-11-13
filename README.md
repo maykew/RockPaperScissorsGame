@@ -9,7 +9,6 @@
 <p align="center">
   <a href="#computer-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#dart-objetivos">Objetivos</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#boom-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#warning-regras-do-jogo">Regras do Jogo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#mortar_board-como-executar-o-projeto">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#family-como-contribuir">Como contribuir</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -29,12 +28,6 @@ Este é um desafio com o intuito de desenvolver uma aplicação distribuída que
 - Familiarizar-se com a programação utilizando a [API socket](https://docs.python.org/3/library/socket.html);<br>
 - Implementar um protocolo para simular o jogo pedra, papel e tesoura, com n jogadores;<br>
 - Enviar e receber dados em uma aplicação que utiliza a arquitetura Cliente/Servidor.
-
-### :boom: Tecnologias
-
-Esse projeto foi desenvolvido com as seguintes tecnologias:
-
-- [Python](https://www.python.org/)
 
 ### :warning: Regras do Jogo
 
